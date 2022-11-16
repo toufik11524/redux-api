@@ -1,7 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
+    loading: false,
     data: [],
+    error: '',
 }
 
 const postSlice = createSlice({
@@ -9,8 +11,7 @@ const postSlice = createSlice({
     initialState,
     reducers: {
         fetchData: (state, action) => {
-            console.log(action.payload, 'action.payload');
-            state.data = action.payload;
+            state.data = action.payload;    
         },
       },
 });

@@ -4,7 +4,8 @@ import { getData } from '../store/Post/postAction';
 
 const Post = () => {
     const post = useSelector((state) => state.post);
-    console.log(post.data, 'post when useSelector');
+    const commonMessage = useSelector((state) => state.common);
+    console.log(commonMessage, 'commonData');
 
     useEffect(()=> {
         getData();
@@ -13,12 +14,12 @@ const Post = () => {
     return (
         <div>
             <h2>List of post</h2>
-            {/* {post.loading && <p>Loading...</p>}
-            {!post.loading && post.error ? <p>Error: {post.error}</p>: null} */}
+            {commonMessage.loading && <p>Loading...</p>}
+            {!commonMessage.loading && commonMessage.error ? <p>Error: {commonMessage.error}</p>: null}
             {!post.loading && post.data.length ? (
                 <ul>
-                    {post.data.map((user) => 
-                        <li key={user.id}>{user.title}</li>
+                    {post.data.map((item) => 
+                        <li key={item.id}>{item.title}</li>
                     )}
                 </ul>
             ): null}

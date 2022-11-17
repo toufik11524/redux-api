@@ -5,7 +5,7 @@ import { getData } from '../store/Post/postAction';
 const Post = () => {
     const post = useSelector((state) => state.post);
     const commonMessage = useSelector((state) => state.common);
-    console.log(commonMessage, 'commonData');
+    console.log(post);
 
     useEffect(()=> {
         getData();
@@ -18,8 +18,8 @@ const Post = () => {
             {!commonMessage.loading && commonMessage.error ? <p>Error: {commonMessage.error}</p>: null}
             {!post.loading && post.data.length ? (
                 <ul>
-                    {post.data.map((item) => 
-                        <li key={item.id}>{item.title}</li>
+                    {post.data.map(({id: postNumber, title: info, body: detail}) => 
+                        <li key={postNumber}>{info}</li>
                     )}
                 </ul>
             ): null}

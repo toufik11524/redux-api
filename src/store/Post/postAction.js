@@ -10,8 +10,8 @@ export const getData = async () => {
         const response = await axios.get(
             `https://jsonplaceholder.typicode.com/posts`
       )
-      store.dispatch(fetchData(response.data))
-      console.log('response', response);
+      store.dispatch(fetchData(response.data));
+    //   console.log('response', response);
       store.dispatch(setIsLoding(false));
       store.dispatch(setIsError(''));
 

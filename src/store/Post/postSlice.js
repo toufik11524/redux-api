@@ -11,7 +11,8 @@ const postSlice = createSlice({
     initialState,
     reducers: {
         fetchData: (state, action) => {
-            state.data = action.payload;    
+            // console.log(action.payload, 'action payload')
+            state.data = action.payload;
         },
       },
 });
